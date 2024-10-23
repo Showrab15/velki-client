@@ -1,0 +1,11 @@
+.backToTopButton-animation {
+    position: fixed; /* Ensure fixed positioning */
+    right: 40px;
+    bottom: 50px;
+    z-index: 9999; /* Ensure button is on top */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
