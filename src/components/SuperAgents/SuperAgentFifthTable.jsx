@@ -224,7 +224,7 @@ export default function SuperAgentFifthTable() {
                     />
                   ) : (
                     <a href={`tel:${agent.phone}`} className="text-[#cc0000]">
-                      {agent.phone}
+                      {agent.link}
                     </a>
                   )}
                 </td>

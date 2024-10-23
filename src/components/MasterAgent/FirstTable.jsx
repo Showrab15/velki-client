@@ -152,7 +152,7 @@ export default function FirstTable() {
 
       <h4 className="mt-4 mb-2 text-lg md:text-[21px] font-bold text-center text-black">
          সাব এডমিন 12 এর অধীনে সুপার এজেন্ট 203 এর অধীনে সর্বমোট মাস্টার এজেন্ট
-         আছে 6 জন 
+         আছে 6 জন {MasterAgent.length}
        </h4>
 
       {/* Conditionally render the edit button only if a user is logged in */}
@@ -217,7 +217,7 @@ export default function FirstTable() {
             className="w-full border border-gray-400 px-2 py-1"
           />
         ) : (
-          <a href={`tel:${agent.phone}`} className="text-[#cc0000]">
+          <a href={`tel:${agent.link}`} className="text-[#cc0000]">
             {agent.phone}
           </a>
         )}

@@ -91,7 +91,7 @@ console.log(siteAdmins)
           <thead>
             <tr>
               <th className="border border-gray-400 px-4 py-2 bg-gray-300">ID NO</th>
-              <th className="border border-gray-400 px-4 py-2 bg-gray-300">Name</th>
+              <th className="border border-gray-400 px-4 py-2 bg-gray-300">Name {siteAdmins.length}</th>
               <th className="border border-gray-400 px-4 py-2 bg-gray-300">TELG</th>
               <th className="border border-gray-400 px-4 py-2 bg-gray-300">WHTS</th>
               <th className="border border-gray-400 px-4 py-2 bg-gray-300">PHONE NUMBER</th>

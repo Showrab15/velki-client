@@ -134,7 +134,7 @@ export default function SuperAgentFirstTable() {
   return (
     <div>
       <h3 className="mt-4 mb-2 text-lg md:text-[21px] font-bold text-center text-black">
-        সাব এডমিন 9 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 3 জন{" "}
+        সাব এডমিন 9 এর অধীনে সর্বমোট সুপার এজেন্ট আছে 3 জন{SuperAgent.length}
       </h3>
 
       {/* Conditionally render the edit button only if a user is logged in */}
@@ -223,7 +223,7 @@ export default function SuperAgentFirstTable() {
                       className="w-full border border-gray-400 px-2 py-1"
                     />
                   ) : (
-                    <a href={`tel:${agent.phone}`} className="text-[#cc0000]">
+                    <a href={`tel:${agent.link}`} className="text-[#cc0000]">
                       {agent.phone}
                     </a>
                   )}
