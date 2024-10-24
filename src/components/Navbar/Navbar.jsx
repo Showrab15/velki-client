@@ -304,7 +304,7 @@ const Navbar = () => {
                     ফোন নাম্বার সার্চ করুন
                   </NavLink>
                 </li>
-                <li>
+                {/* <li>
                   {user ? (
                     <Link
                       onClick={handleLogOut}
@@ -332,7 +332,7 @@ const Navbar = () => {
                       </button>
                     </Link>
                   )}
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
