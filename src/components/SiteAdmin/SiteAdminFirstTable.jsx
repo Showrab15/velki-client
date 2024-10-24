@@ -75,7 +75,7 @@ console.log(siteAdmins)
       {/* Conditionally render the edit button only if a user is logged in */}
       {user && (
         <>
-          <button onClick={toggleEditMode} className="bg-blue-500 text-white px-4 py-2 rounded my-4">
+          <button onClick={toggleEditMode} className="bg-blue-500 text-white px-4 mx-4 py-2 rounded my-4">
             {editMode ? "Cancel Edit" : "Edit Links"}
           </button>
           {editMode && (
@@ -86,15 +86,16 @@ console.log(siteAdmins)
         </>
       )}
 
-      <div className="overflow-x-auto p-4">
-        <table className="w-full table-auto border-collapse border border-gray-300">
+      <div className="flex flex-col justify-center items-center mb-6 mx-4">
+        <div className="w-full md:w-auto">
+<table className="table-fixed w-full  border-collapse border border-gray-300 mb-6">
           <thead>
             <tr>
-              <th className="border border-gray-400 px-4 py-2 bg-gray-300">ID NO</th>
-              <th className="border border-gray-400 px-4 py-2 bg-gray-300">Name {siteAdmins.length}</th>
-              <th className="border border-gray-400 px-4 py-2 bg-gray-300">TELG</th>
-              <th className="border border-gray-400 px-4 py-2 bg-gray-300">WHTS</th>
-              <th className="border border-gray-400 px-4 py-2 bg-gray-300">PHONE NUMBER</th>
+              <th className="border border-gray-400 px-2 py-2 bg-[#fff6f3] text-xs sm:text-sm md:text-base w-[10%]">ID NO</th>
+              <th className="border border-gray-400 px-2 py-2 bg-[#fff6f3] text-xs sm:text-sm md:text-base w-[20%]">Name</th>
+              <th className="border border-gray-400 px-2 py-2 bg-[#fff6f3] text-xs sm:text-sm md:text-base w-[15%]">TELG</th>
+              <th className="border border-gray-400 px-2 py-2 bg-[#fff6f3] text-xs sm:text-sm md:text-base w-[15%]">WHTS</th>
+              <th className="border border-gray-400 px-2 py-2 bg-[#fff6f3] text-xs sm:text-sm md:text-base w-[40%]">PHONE NUMBER</th>
             </tr>
           </thead>
           <tbody>
@@ -102,10 +103,10 @@ console.log(siteAdmins)
               <tr
                 key={siteAdmin.id}
                 ref={el => agentRefs.current[rowIndex] = el}
-                className={`text-center ${rowIndex % 2 === 0 ? "bg-[#f2f2f2]" : "bg-[#e5e5e5]"} ${searchId === siteAdmin.id.toString() ? "bg-yellow-300" : ""}`}
+                className={`text-center ${rowIndex % 2 === 0 ? "bg-[#f2f2f2]" : "bg-[#fff6f3]"} ${searchId === siteAdmin.id.toString() ? "bg-yellow-300" : ""}`}
               >
-                <td className="border border-gray-300 px-4 py-2">{siteAdmin.id}</td>
-                <td className="border border-gray-300 px-4 py-2">{siteAdmin.name}</td>
+                <td className="border border-gray-300 px-4 py-2 text-[12px] md:text-xl font-bold">{siteAdmin.id}</td>
+                <td className="border border-gray-300 px-4 py-2 text-[12px] md:text-xl text-center font-bold">{siteAdmin.name}</td>
 
                 {/* Editable APP (WhatsApp link) Field */}
                 <td className="border border-gray-300 px-4 py-2">
@@ -123,7 +124,7 @@ console.log(siteAdmins)
                       rel="noopener noreferrer"
                       className="text-center whatsapp-link"
                     >
-                      <FaTelegram  className="text-blue-500 text-3xl mx-auto" />
+                      <FaTelegram  className="text-blue-500 text-2xl mx-auto" />
                     </a>
                   )}
                 </td>
@@ -143,7 +144,7 @@ console.log(siteAdmins)
                       rel="noopener noreferrer"
                       className="text-center whatsapp-link"
                     >
-                      <FaWhatsapp className="text-[#23b466] text-3xl mx-auto" />
+                      <FaWhatsapp className="text-[#23b466] text-2xl mx-auto  font-bold" />
                     </a>
                   )}
                 </td>
@@ -158,7 +159,7 @@ console.log(siteAdmins)
                       className="w-full border border-gray-400 px-2 py-1"
                     />
                   ) : (
-                    <a href={`tel:${siteAdmin.whatsapp}`} className="text-[#cc0000]">
+                    <a href={siteAdmin.whatsapp} className="text-[#cc0000] md:text-xl font-bold text-[12px]">
                       {siteAdmin.phone}
                     </a>
                   )}
@@ -168,6 +169,7 @@ console.log(siteAdmins)
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

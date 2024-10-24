@@ -24,7 +24,10 @@ export default function MasterAgentBanner() {
           আসবে - তাকে অভিযোগ করতে হবে।
         </p>
       </div>
-      <h3 className="my-10 text-lg md:text-[21px] font-bold text-center text-[#333]">VELKI MASTER AGENT LIST</h3>
-    </div>
+      <h3 className="my-6 uppercase leading-[40px] text-[28px] font-bold text-center text-black">
+      VELKI Master Agent LIST
+
+
+      </h3>    </div>
   );
 }
