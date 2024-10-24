@@ -27,8 +27,8 @@ export default function SuperAgents(){
 <SuperAgentSixthTable/>
 <SuperAgentSeventhTable/>
 <SuperAgentEightTable/>
-<SuperAgentNinthTable/>
-<SuperAgentTenthTable/>
+{/* <SuperAgentNinthTable/> */}
+{/* <SuperAgentTenthTable/> */}
 </div>
 
      </>

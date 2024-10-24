@@ -162,85 +162,73 @@ export default function SuperAgentSecondTable() {
         </>
       )}
 
-      <div className="overflow-x-auto p-4">
-        <table className="w-full table-auto border-collapse border border-gray-300">
-          <thead>
-            <tr>
-              <th className="border border-gray-400 px-4 py-2 bg-gray-300">
-                ID NO
-              </th>
-              <th className="border border-gray-400 px-4 py-2 bg-gray-300">
-                AGENT
-              </th>
-              <th className="border border-gray-400 px-4 py-2 bg-gray-300">
-                APP
-              </th>
-              <th className="border border-gray-400 px-4 py-2 bg-gray-300">
-                PHONE NUMBER
-              </th>
-              <th className="border border-gray-400 px-4 py-2 bg-gray-300">
-                COMPLAIN
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {SuperAgent.slice(4, 14).map((agent, rowIndex) => (
-              <tr
-                key={agent.id}
-                ref={(el) => (agentRefs.current[rowIndex] = el)}
-                className={`text-center ${
-                  rowIndex % 2 === 0 ? "bg-[#f2f2f2]" : "bg-[#e5e5e5]"
-                } ${searchId === agent.id.toString() ? "bg-yellow-300" : ""}`}
+        
+<div className="p-4">
+  <table className="w-full table-auto border-collapse border border-gray-300">
+    <thead>
+      <tr>
+        <th className="border border-gray-400 px-2 py-2 bg-[#fff6f3] text-sm sm:text-base">ID NO</th>
+        <th className="border border-gray-400 px-2 py-2 bg-[#fff6f3] text-sm sm:text-base">AGENT</th>
+        <th className="border border-gray-400 px-2 py-2 bg-[#fff6f3] text-sm sm:text-base">APP</th>
+        <th className="border border-gray-400 px-2 py-2 bg-[#fff6f3] text-sm sm:text-base">PHONE NUMBER</th>
+        <th className="border border-gray-400 px-2 py-2 bg-[#fff6f3] text-sm sm:text-base">COMPLAIN</th>
+      </tr>
+    </thead>
+    <tbody>
+      {SuperAgent.slice(4,14).map((agent, rowIndex) => (
+        <tr
+          key={agent.id}
+          ref={el => agentRefs.current[rowIndex] = el}
+          className={`text-center ${rowIndex % 2 === 0 ? " bg-[#efefef] " : "bg-[#fff6f3]"} ${searchId === agent.id.toString() ? "bg-yellow-300" : ""}`}
+        >
+          <td className="border border-gray-300 px-2 py-2 text-sm sm:text-base">{agent.id}</td>
+          <td className="border border-gray-300 px-2 py-2 text-sm sm:text-base">{agent.agent}</td>
+
+          {/* Editable APP (WhatsApp link) Field */}
+          <td className="border border-gray-300 px-2 py-2 text-sm sm:text-base">
+            {editMode ? (
+              <input
+                type="text"
+                value={agent.link}
+                onChange={(e) => handleInputChange(agent.id, "link", e.target.value)}
+                className="w-full border border-gray-400 px-2 py-1"
+              />
+            ) : (
+              <a
+                href={agent.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center whatsapp-link"
               >
-                <td className="border border-gray-300 px-4 py-2">{agent.id}</td>
-                <td className="border border-gray-300 px-4 py-2">
-                  {agent.agent}
-                </td>
-                <td className="border border-gray-300 px-4 py-2">
-                  {editMode ? (
-                    <input
-                      type="text"
-                      value={agent.link}
-                      onChange={(e) =>
-                        handleInputChange(agent.id, "link", e.target.value)
-                      }
-                      className="w-full border border-gray-400 px-2 py-1"
-                    />
-                  ) : (
-                    <a
-                      href={agent.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-center whatsapp-link"
-                    >
-                      <FaWhatsapp className="text-[#23b466] text-3xl mx-auto" />
-                    </a>
-                  )}
-                </td>
-                <td className="border border-gray-300 px-4 py-2">
-                  {editMode ? (
-                    <input
-                      type="text"
-                      value={agent.phone}
-                      onChange={(e) =>
-                        handleInputChange(agent.id, "phone", e.target.value)
-                      }
-                      className="w-full border border-gray-400 px-2 py-1"
-                    />
-                  ) : (
-                    <a href={`tel:${agent.link}`} className="text-[#cc0000]">
-                      {agent.phone}
-                    </a>
-                  )}
-                </td>
-                <td className="border border-gray-300 px-4 py-2 text-[#cc0000]">
-                  {agent.complain}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+                <FaWhatsapp className="text-[#23b466] text-2xl mx-auto" />
+              </a>
+            )}
+          </td>
+
+          {/* Editable Phone Number Field */}
+          <td className="border border-gray-300 px-2 py-2 text-sm sm:text-base">
+            {editMode ? (
+              <input
+                type="text"
+                value={agent.phone}
+                onChange={(e) => handleInputChange(agent.id, "phone", e.target.value)}
+                className="w-full border border-gray-400 px-2 py-1"
+              />
+            ) : (
+              <a href={`tel:${agent.link}`} className="text-[#cc0000]">
+                {agent.phone}
+              </a>
+            )}
+          </td>
+
+          <td className="border border-gray-300 px-2 py-2 text-[#cc0000] text-sm sm:text-base">
+            {agent.complain}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
     </div>
   );
 }
